@@ -26,9 +26,11 @@ function Main() {
         />
         <button type="submit">Add Ingredient</button>
       </form>
+      <label className='ingredient-list'>      
       <ul>
         {ingredientItems}
       </ul>
+      </label>
     </main>
   );
 }

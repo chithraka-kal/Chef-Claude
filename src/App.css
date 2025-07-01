@@ -53,3 +53,14 @@ main{
     content: "+";
     margin-right: 5px;
 }
+.ingredient-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 150px;
+    max-width: 400px;
+    gap: 10px;
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+}
