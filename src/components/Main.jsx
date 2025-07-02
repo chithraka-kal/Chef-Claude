@@ -7,17 +7,14 @@ function Main() {
     (ingredient, index) => <li key={index}>{ingredient}</li>
     )
 
-    function handelSubmit(event) {
-        event.preventDefault()
-        const formData = new FormData(event.target)
+    function addIngredient(formData) {
         const newIngredient = formData.get('ingredient')
         setIngredients([...ingredients, newIngredient])
-        event.target.reset()
     }
 
   return (
     <main>
-      <form onSubmit={handelSubmit} className="ingredient-form">
+      <form action={addIngredient} className="ingredient-form">
         <input 
             type="text"
             placeholder="e.g. oregano"
