@@ -23,7 +23,8 @@ function Main() {
         />
         <button type="submit">Add Ingredient</button>
       </form>
-            <section>
+            {
+            ingredients.length > 0 && <section className='ingredients-section'>
                 <h2>Ingredients on hand:</h2>
                 <ul className="ingredients-list" aria-live="polite">{ingredientItems}</ul>
                 <div className="get-recipe-container">
@@ -33,7 +34,7 @@ function Main() {
                     </div>
                     <button>Get a recipe</button>
                 </div>
-            </section>
+            </section>}
     </main>
   );
 }
