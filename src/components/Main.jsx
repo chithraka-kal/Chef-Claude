@@ -1,7 +1,7 @@
 import React from 'react';
 function Main() {
 
-    const [ingredients, setIngredients] = React.useState(['tomato', 'salt', 'pepper'])
+    const [ingredients, setIngredients] = React.useState([])
 
     const ingredientItems = ingredients.map(
     (ingredient, index) => <li key={index}>{ingredient}</li>
@@ -9,7 +9,7 @@ function Main() {
 
     function addIngredient(formData) {
         const newIngredient = formData.get('ingredient')
-        setIngredients([...ingredients, newIngredient])
+        if(newIngredient !== ''){setIngredients([...ingredients, newIngredient])}
     }
 
   return (
@@ -23,11 +23,17 @@ function Main() {
         />
         <button type="submit">Add Ingredient</button>
       </form>
-      <label className='ingredient-list'>      
-      <ul>
-        {ingredientItems}
-      </ul>
-      </label>
+            <section>
+                <h2>Ingredients on hand:</h2>
+                <ul className="ingredients-list" aria-live="polite">{ingredientItems}</ul>
+                <div className="get-recipe-container">
+                    <div>
+                        <h3>Ready for a recipe?</h3>
+                        <p>Generate a recipe from your list of ingredients.</p>
+                    </div>
+                    <button>Get a recipe</button>
+                </div>
+            </section>
     </main>
   );
 }
