@@ -35,9 +35,9 @@ function Main() {
         <button type="submit">Add Ingredient</button>
       </form>
             {ingredients.length > 0 && 
-            <ClaudeRecipe ingredients={ingredients} ingredientItems={ingredientItems} toggleRecipe={toggleRecipe}/>
+            <IngredientsList ingredients={ingredients} ingredientItems={ingredientItems} toggleRecipe={toggleRecipe}/>
             }
-      {recipeShown && <IngredientsList />}
+      {recipeShown && <ClaudeRecipe />}
     </main>
   );
 }
