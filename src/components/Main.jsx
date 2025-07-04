@@ -4,7 +4,7 @@ import IngredientsList from './IngredientsList';
 import { getRecipeFromMistral } from "../ai";
 function Main() {
 
-    const [ingredients, setIngredients] = React.useState(["all the main spices", "pasta", "ground beef", "tomato paste"])
+    const [ingredients, setIngredients] = React.useState(["all the main spices", "potato", "flour", "coconut oil", "onion", "garlic", "salt", "pepper",])
 
     const ingredientItems = ingredients.map(
     (ingredient, index) => <li key={index}>{ingredient}</li>
@@ -12,8 +12,9 @@ function Main() {
 
     const [recipeShown, setRecipeShown] = React.useState(false);
 
-    function toggleRecipe() {
-        setRecipeShown(prevShown => !prevShown);
+    async function getRecipe() {
+        const recipeMarkdown = await getRecipeFromMistral(ingredients)
+        console.log(recipeMarkdown)
     }
 
 
@@ -36,7 +37,10 @@ function Main() {
         <button type="submit">Add Ingredient</button>
       </form>
             {ingredients.length > 0 && 
-            <IngredientsList ingredients={ingredients} ingredientItems={ingredientItems} toggleRecipe={toggleRecipe}/>
+            <IngredientsList 
+              ingredients={ingredients} 
+              ingredientItems={ingredientItems} 
+              getRecipe={getRecipe}/>
             }
       {recipeShown && <ClaudeRecipe />}
     </main>
