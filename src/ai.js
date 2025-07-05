@@ -5,7 +5,7 @@ You are an assistant that receives a list of ingredients that a user has and sug
 `
 
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GOOGLE_API_KEY);
-console.log("Google API Key:", import.meta.env.VITE_GOOGLE_API_KEY);
+
 
 
 export async function getRecipeFromGoogle(ingredientsArr) {
